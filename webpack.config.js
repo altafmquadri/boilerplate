@@ -11,9 +11,9 @@ module.exports = (env) => {
     return {
         entry: './src/app.js',
         output: {
-            path: path.join(__dirname, 'public', 'dist'),
-            filename: 'bundle.js',
-            publicPath: '/dist/'
+            path: path.join(__dirname, 'public'),
+            filename: './dist/bundle.js',
+            // publicPath: '/dist/'
         },
         module: {
             rules: [{
@@ -31,13 +31,16 @@ module.exports = (env) => {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             port: 3000,
-            historyApiFallback: true,
-            publicPath: '/dist/',
-            writeToDisk: true
+            inline: true,
+            historyApiFallback: true
+            // publicPath: '/dist/'
         },
         plugins: [new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: '../index.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
         }),
         new MiniCssExtractPlugin({
             filename: 'styles.css'

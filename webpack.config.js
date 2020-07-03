@@ -35,16 +35,15 @@ module.exports = (env) => {
             historyApiFallback: true,
             publicPath: '/dist/'
         },
-        plugins: [new HtmlWebpackPlugin({
-            template: './src/index.html',
-            filename: '../index.html'
-        }),
-        // new HtmlWebpackPlugin({
-        //     template: './src/index.html'
-        // }),
-        new MiniCssExtractPlugin({
-            filename: 'styles.css'
-        })
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: './src/index.html',
+                filename: '../index.html'
+                // favicon: 'public/images/favicon.png'
+            }),
+            new MiniCssExtractPlugin({
+                filename: 'styles.css'
+            })
         ]
     }
 }
